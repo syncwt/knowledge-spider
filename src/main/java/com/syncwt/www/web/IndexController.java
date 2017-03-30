@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 /**
  * @version v0.0.1
  * @Description  主页接口
@@ -27,4 +29,13 @@ public class IndexController {
     public Message search(@RequestParam(value = "keyword") String keyword) {
         return indexService.handleSearchresult(keyword);
     }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public Message test() throws IOException {
+        indexService.saveCustomers();
+        indexService.fetchAllCustomers();
+        indexService.fetchIndividualCustomers();
+        return Message.SUCCESS;
+    }
+
 }

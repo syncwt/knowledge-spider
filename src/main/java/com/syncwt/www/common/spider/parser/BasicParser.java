@@ -1,12 +1,12 @@
 package com.syncwt.www.common.spider.parser;
 
+import com.syncwt.www.common.spider.Fetcher.BasicImgFetcher;
+import com.syncwt.www.common.spider.Fetcher.ImgFetcher;
+import com.syncwt.www.common.spider.rating.Rating;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.xs.spider.Fetcher.BasicImgFetcher;
-import org.xs.spider.Fetcher.ImgFetcher;
-import org.xs.spider.rating.Rating;
 
 /**
  * Created by Administrator on 15-5-27.
