@@ -62,29 +62,4 @@ public class IndexService {
         return Message.SUCCESS;
     }
 
-    public void saveCustomers() throws IOException {
-        this.repository.save(new Customer("Alice", "Smith"));
-        this.repository.save(new Customer("Bob", "Smith"));
-    }
-
-    public void fetchAllCustomers() throws IOException {
-        System.out.println(repository.findOne("AVsN09SSXWIAlHEvG3Lj"));
-        System.out.println("Customers found with findAll():");
-        System.out.println("-------------------------------");
-        for (Customer customer : this.repository.findAll()) {
-            System.out.println(customer);
-        }
-    }
-
-    public void fetchIndividualCustomers() {
-        System.out.println("Customer found with findByFirstName('Alice'):");
-        System.out.println("--------------------------------");
-        System.out.println(repository.findByFirstName("Alice"));
-
-        System.out.println("Customers found with findByLastName('Smith'):");
-        System.out.println("--------------------------------");
-        for (Customer customer : this.repository.findByLastName("Smith")) {
-            System.out.println(customer);
-        }
-    }
 }

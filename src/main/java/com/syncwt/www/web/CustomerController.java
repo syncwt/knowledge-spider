@@ -2,36 +2,34 @@ package com.syncwt.www.web;
 
 import com.syncwt.www.response.Message;
 import com.syncwt.www.service.CustomerService;
-import com.syncwt.www.service.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 
 /**
  * @version v0.0.1
- * @Description  主页接口
+ * @Description  CustomerController
  * @Author wanwt@senthink.com
- * @Creation Date 2017年03月18日 下午4:36
+ * @Creation Date 2017年03月30日 下午8:21
  * @ModificationHistory Who        When          What
  * --------   ----------    -----------------------------------
  */
 @RestController
-@RequestMapping(value = "/index")
-public class IndexController {
+public class CustomerController {
 
     @Autowired
-    private IndexService indexService;
+    private CustomerService customerService;
 
-    @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public Message search(@RequestParam(value = "keyword") String keyword) {
-        return indexService.handleSearchresult(keyword);
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public Message test() throws IOException {
+//        customerService.saveCustomers();
+//        customerService.fetchAllCustomers();
+//        customerService.fetchIndividualCustomers();
+        customerService.searchHelper();
+        return Message.SUCCESS;
     }
-
-
-
 }
